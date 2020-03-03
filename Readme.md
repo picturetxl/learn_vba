@@ -86,6 +86,12 @@
 
 
 
+
+
+
+
+
+
 ## 一个案例学习VBA基础
 
 + 工资条案例
@@ -318,7 +324,35 @@ End If
 
 [解决方案]( https://jingyan.baidu.com/article/7908e85cd88ce3af481ad2ad.html )
 
+
+
+### :warning: 无法在未启用宏的工作簿中保存
+
+![image-20200303132800111](Readme.assets/image-20200303132800111.png)
+
+### :ballot_box_with_check: 解决
+
++ 点否
+
++ 出现保存对话框
+
+  ![image-20200303132926259](Readme.assets/image-20200303132926259.png)
+
++ 选择启用宏的工作簿
+
+  ![image-20200303132954163](Readme.assets/image-20200303132954163.png)
+
+
+
++ 出现感叹号
+
+  ![image-20200303133021183](Readme.assets/image-20200303133021183.png)
+
++ 打开这个文件即可
+
 ## EXCEL常用
+
+
 
 ### :hammer: 菜单下拉
 
