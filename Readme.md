@@ -4,6 +4,16 @@
 
 ## 写在开头
 
+### 课时
+
+|     时间     |   地点    | 时长  |    人    |
+| :----------: | :-------: | :---: | :------: |
+| 14::00-15:00 | ERP研究所 | 1hour | 郑,张,温 |
+|              |           |       |          |
+|              |           |       |          |
+
+
+
 ### 网上的文档
 
 [w3school]( https://www.w3cschool.cn/excelvba/ )
@@ -198,9 +208,10 @@ dim counter as Integer
 
 ```vb
 dim counter as Integer 
-For counter = 1 To 5 step 1
+For counter = 1 To 5 step 2
 '循环体
 next
+
 ```
 
 
