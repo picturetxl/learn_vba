@@ -17,7 +17,7 @@
 |     时间     |              内容               |      地点       | 时长 |  实际人数   |      |
 | :----------: | :-----------------------------: | :-------------: | :--: | :---------: | :--: |
 | 14::00-14:45 |    VBA开发环境搭建和入门案例    | ERP研究所会议室 |  1   | 郑,张,温,衣 |      |
-| 14::00-15:30 | VBA操作工作表,工作簿,单元格对象 | ERP研究所会议室 |  2   |             |      |
+| 14::00-15:30 | VBA操作工作表,工作簿,单元格对象 | ERP研究所会议室 |  2   | 郑,张,温,衣 |      |
 | 14::00-15:30 |        VBA事件和典型应用        | ERP研究所会议室 |  2   |             |      |
 | 14::00-14:45 |       VBA中使用函数和公式       | ERP研究所会议室 |  1   |             |      |
 | 14::00-15:30 |   VBA自定义函数和传参实现复用   | ERP研究所会议室 |  2   |             |      |
@@ -123,9 +123,9 @@
 
 ![image-20200303091047573](Readme.assets/image-20200303091047573.png)
 
+### Lesson 1 录制宏
 
-
-### 辅助工具--录制宏
+#### 辅助工具--录制宏
 
 > 用于不常用功能或者复杂功能的代码书写
 >
@@ -200,6 +200,110 @@
 
 
 
+
+
+### Lesson 2 工作表 单元格
+
+#### sheets 工作表对象
+
++ 注意:
+
+  > index 是从1开始 看到的excel工作表就是从第一个开始,依次往后,不管工作表的大名还是小名--> **sheets(index )**
+  >
+  > 而vba编辑器中的sheet4 是工作表的大名 2叫小名
+
+  ![image-20200310150702189](Readme.assets/image-20200310150702189.png)
+
+
+
++ 选择工作表
+
+  ```vba
+  ' 选择工作表1的方式
+  Sub test()
+      ' sheets(1,2,3,4,5)-一些工作表(index)
+      'Sheet3.Select '第一种方式-一个工作表
+      'Sheets(3).Select '第二种方式
+      Sheets(i).Select
+      'Sheets("1月").Select
+  End Sub
+  
+  
+  
+  Sub test1()
+      'sheets 对象-干活的人 方法-怎么干(动作) 属性-对象给你啥
+      Dim i As Integer
+      i = Sheets.Count
+      MsgBox "工作表有" & i & "个"
+      Sheets.Add after:=Sheets(Sheets.Count)
+      Sheets(Sheets.Count).Name = "新表"
+  
+  End Sub
+  
+  
+  Sub test2()
+      Dim i As Integer '循环变量
+      
+      '建100张表，分别叫1,2,3,4.....
+      For i = 1 To 100
+          Sheets.Add after:=Sheets(Sheets.Count)
+          Sheets(Sheets.Count).Name = i
+      Next
+      
+  
+  End Sub
+  
+  ```
+  
++ 增加
+
+  ```vba
+   Sheets.Add after:=Sheets(Sheets.Count)
+  ```
+  
+  
+
++ 删除
+
+  ```vba
+  Sheets(index).Delete
+  ```
+
+  
+
++ 修改
+
+  ```vba
+  Sheets(index).Name = "我的工作表的名字"
+  ```
+
+  
+
++ 遍历
+
+  ```vba
+   For i = 1 To sheets.Count
+          Sheets.Add after:=Sheets(Sheets.Count)
+          Sheets(Sheets.Count).Name = i
+   Next
+  ```
+
+  
+
+#### Range 单元格
+
++ 获取单元格的值
+
++ 修改单元格的值
+
++ 删除整行
+
++ 复制某个范围的单元格
+
+  
+
+
+
 ## 语法
 
 ###  :happy: 宏代码的结构
@@ -252,13 +356,17 @@ End If
 ### :happy:常见对象/属性
 
 > 所谓对象就是干活的人.你有一件事你不会做,你要指定一个会做的人去做,这个人就是对象.
-
-+ ActiveCell
-  + 插入公式
-  + 
-+ 
+>
+> 属性就是这个对象能给你提供什么.
 
 
+
+## 快捷键
+
++ `Tab` : 向后缩进
++ `shift` + `tab`:向前缩进
++ `ctrl`+ `s` : 保存
++ `F8`:单步调试
 
 ### 制作工资条
 
