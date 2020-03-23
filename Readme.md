@@ -14,16 +14,16 @@
 
 > 每周二上课
 
-| check              |     时间     |              内容               |      地点       | 时长 |  实际人数   |      |
-| ------------------ | :----------: | :-----------------------------: | :-------------: | :--: | :---------: | :--: |
-| :heavy_check_mark: | 14::00-14:45 |    VBA开发环境搭建和入门案例    | ERP研究所会议室 |  1   | 郑,张,温,衣 |      |
-| :heavy_check_mark: | 14::00-15:30 | VBA操作工作表,工作簿,单元格对象 | ERP研究所会议室 |  2   | 郑,张,温,衣 |      |
-|                    | 14::00-15:30 |        VBA事件和典型应用        | ERP研究所会议室 |  2   |             |      |
-|                    | 14::00-14:45 |       VBA中使用函数和公式       | ERP研究所会议室 |  1   |             |      |
-|                    | 14::00-15:30 |   VBA自定义函数和传参实现复用   | ERP研究所会议室 |  2   |             |      |
-|                    | 14::00-14:45 |       VBA控件和窗体的使用       | ERP研究所会议室 |  1   |             |      |
-|                    | 14::00-14:45 |         VBA用户信息交互         | ERP研究所会议室 |  1   |             |      |
-|                    | 14::00-15:30 |           VBA类的使用           | ERP研究所会议室 |  2   |             |      |
+| check              |     时间     |               内容               |      地点       | 课时 |  实际人数   |
+| ------------------ | :----------: | :------------------------------: | :-------------: | :--: | :---------: |
+| :heavy_check_mark: | 14::00-14:45 |    VBA开发环境搭建和入门案例     | ERP研究所会议室 |  1   | 郑,张,温,衣 |
+| :heavy_check_mark: | 14::00-15:30 | VBA操作工作表,工作簿,单元格对象1 | ERP研究所会议室 |  2   | 郑,张,温,衣 |
+| :heavy_check_mark: | 14::00-15:30 | VBA操作工作表,工作簿,单元格对象2 | ERP研究所会议室 |  2   |  郑,张,温   |
+|                    | 14::00-15:30 |        VBA事件和典型应用         | ERP研究所会议室 |  2   |             |
+|                    | 14::00-14:45 |       VBA中使用函数和公式        | ERP研究所会议室 |  1   |             |
+|                    | 14::00-15:30 |   VBA自定义函数和传参实现复用    | ERP研究所会议室 |  2   |             |
+|                    | 14::00-14:45 |       VBA控件和窗体的使用        | ERP研究所会议室 |  1   |             |
+|                    | 14::00-14:45 |         VBA用户信息交互          | ERP研究所会议室 |  1   |             |
 
 ### 教学目标
 
@@ -117,13 +117,15 @@
 
 
 
+
+
 ## Start
 
 + 工资条案例
 
 ![image-20200303091047573](Readme.assets/image-20200303091047573.png)
 
-### Lesson 1 录制宏
+### 录制宏
 
 #### 辅助工具--录制宏
 
@@ -202,124 +204,6 @@
 
 
 
-### Lesson 2 工作表 单元格
-
-#### sheets 工作表对象
-
-+ 注意:
-
-  > index 是从1开始 看到的excel工作表就是从第一个开始,依次往后,不管工作表的大名还是小名--> **sheets(index )**
-  >
-  > 而vba编辑器中的sheet4 是工作表的大名 2叫小名
-
-  ![image-20200310150702189](Readme.assets/image-20200310150702189.png)
-
-
-
-+ 选择工作表
-
-  ```vba
-  ' 选择工作表1的方式
-  Sub test()
-      ' sheets(1,2,3,4,5)-一些工作表(index)
-      'Sheet3.Select '第一种方式-一个工作表
-      'Sheets(3).Select '第二种方式
-      Sheets(i).Select
-      'Sheets("1月").Select
-  End Sub
-  
-  
-  
-  Sub test1()
-      'sheets 对象-干活的人 方法-怎么干(动作) 属性-对象给你啥
-      Dim i As Integer
-      i = Sheets.Count
-      MsgBox "工作表有" & i & "个"
-      Sheets.Add after:=Sheets(Sheets.Count)
-      Sheets(Sheets.Count).Name = "新表"
-  
-  End Sub
-  
-  
-  Sub test2()
-      Dim i As Integer '循环变量
-      
-      '建100张表，分别叫1,2,3,4.....
-      For i = 1 To 100
-          Sheets.Add after:=Sheets(Sheets.Count)
-          Sheets(Sheets.Count).Name = i
-      Next
-      
-  
-  End Sub
-  
-  ```
-  
-+ 增加
-
-  ```vba
-   Sheets.Add after:=Sheets(Sheets.Count)
-  ```
-  
-  
-
-+ 删除
-
-  ```vba
-  Sheets(index).Delete
-  ```
-
-  
-
-+ 修改
-
-  ```vba
-  Sheets(index).Name = "我的工作表的名字"
-  ```
-
-  
-
-+ 遍历
-
-  ```vba
-   For i = 1 To sheets.Count
-          Sheets.Add after:=Sheets(Sheets.Count)
-          Sheets(Sheets.Count).Name = i
-   Next
-  ```
-
-  
-
-#### Range 单元格
-
-+ 获取单元格的值
-
-  ```vba
-  value = range("a1").Value 
-  ```
-
-  
-
-+ 修改单元格的值
-
-  ```vba
-  range("a1").Value = 24
-  ```
-
-  
-
-+ 删除整行
-
-  ```&quot;
-  range("a1").EntireRow.Delete
-  ```
-
-  
-
-+ 复制某个范围的单元格
-
-  
-
 ## 数据类型
 
 #### 整型integer
@@ -346,11 +230,194 @@ dim i as double
 
 
 
+#### 工作表类型
+
+```vba
+Dim sht As Worksheet '对象也是一种类型
+```
+
+
+
+
+
 ## :bug: Bug
 
 ### 溢出
 
 > 可能原因是整数溢出,可以更换类型为浮点数double
+
+
+
+## 对象
+
+
+
+### 工作表对象
+
+#### 添加工作表
+
+```vba
+Sheets.Add after:=Sheets(Sheets.Count) '在表最后添加表
+Sheets(Sheets.Count).Name = Sheet1.Range("a1").Value '改表名
+```
+
+#### 访问某一个表
+
+
+
++ 注意:
+
+  > index 是从1开始 看到的excel工作表就是从第一个开始,依次往后,不管工作表的大名还是小名--> **sheets(index )**
+  >
+  > 而vba编辑器中的sheet4 是工作表的大名 2叫小名
+
+  ![image-20200310150702189](Readme.assets/image-20200310150702189.png)
+
+
+
++ 选择工作表
+
+
+
+1. 索引访问
+
+   ```vba
+   Sheets(index)
+   ```
+
+   
+
+2. 直接访问
+
+   ```vba
+   sheet1
+   ```
+
+   ![image-20200323161647409](Readme.assets/image-20200323161647409.png)
+
+#### 选中工作表
+
+```vba
+Sheet1.Select
+```
+
+#### 增加工作表
+
+> 添加 在哪里添加 并给他一个表名
+
+```vba
+Sheets.Add after:=Sheets(Sheets.Count)
+Sheets(Sheets.Count).Name = Sheet1.Cells(i, l)'cell(行,列)
+```
+
+
+
+### 工作簿对象
+
+> 另存为saveas
+>
+> 关闭close
+
+```vba
+For Each sht In Sheets
+    sht.Copy
+    ActiveWorkbook.SaveAs Filename:="d:\data\" & sht.Name & ".xlsx"
+    ActiveWorkbook.Close
+Next
+```
+
+
+
+
+
+
+
+
+
+## 常见功能代码
+
+
+
+### 自动筛选
+
+> 第一步:选中需要筛选的区域,第二步设置过滤的条件 
+>
+> Field:说明按照第几列筛选
+>
+> Criteria1:说明该列的第几个值筛选
+
+```vba
+Sheet1.Range("a1:f1048").AutoFilter Field:=4, Criteria1:=Sheets(i).Name
+```
+
+> 恢复自动筛选状态
+
+```vba
+Sheet1.Range("a1:f1048").AutoFilter
+```
+
+
+
+### 输入输出对话框
+
+#### 输入对话框
+
+```vba
+l = InputBox("请输入你要按哪列分") '保存在l变量里面
+```
+
+#### 输出对话框
+
+```vba
+MsgBox "已处理完毕"
+```
+
+
+
+### 拷贝数据
+
+> 拷贝到哪里
+
+```vba
+Sheet1.Range("a1:f" & irow).Copy Sheets(j).Range("a1")
+```
+
+
+
+### 提示关闭
+
+> 成对出现
+
+```vba
+Application.DisplayAlerts = False '成对出现的
+
+	'....code
+
+Application.DisplayAlerts = True
+```
+
+
+
+### 获取行数和列数
+
+```vba
+icolumn = Sheet1.Range("IV1").End(xlToLeft).Column '获取列数
+irow = Sheet1.Range("a65536").End(xlUp).Row '获取行数
+```
+
+### 删除选区内容
+
+```vba
+Sheet1.Range("a1:f65536").ClearContents
+```
+
+### 删除整行
+
+```vba
+Range("a10").EntireRow.Delete
+```
+
+
 
 
 
@@ -375,12 +442,24 @@ dim counter as Integer
 
 ###  :happy: 循环
 
+#### for循环
+
 ```vb
 dim counter as Integer 
 For counter = 1 To 5 step 2
 '循环体
 next
 
+```
+
+#### for each循环
+
+```vba
+For Each sht In Sheets
+    If sht.Name = Sheet1.Range("a1") Then
+    	k = 1
+    End If
+Next
 ```
 
 
@@ -534,6 +613,26 @@ End If
 
 + 打开这个文件即可
 
+
+
+### :warning:警告直接关闭 
+
+> 发现下面代码未起作用
+
+```vba
+Application.DisplayAlerts = False '成对出现的
+
+	'....code
+
+Application.DisplayAlerts = True
+```
+
+
+
+
+
+
+
 ## EXCEL常用
 
 
@@ -549,11 +648,13 @@ End If
 
 `shift` + 鼠标
 
-![vba04](Readme.assets/vba04.gif)
-
 
 
 ### :hammer: 自动换行
 
 快捷键: `alt`+`enter`
+
+
+
+
 
